@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bus Booking</title>
+    </head>
+    <body>
+        <h1>Book a Bus</h1>
+        
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+
+        <form method="post" action="{% url 'book_bus' %}">
+            {% csrf_token %}
+            <label for="bus">Select a Bus:</label>
+            <select name="bus_id" id="bus">
+                {% for bus in buses %}
+                    <option value="{{ bus.id }}">{{ bus.name }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label for="seat_number">Choose a Seat:</label>
+            <input type="number" name="seat_number" id="seat_number" min="1" max="50"><br><br>
+
+            <label for="passenger_name">Your Name:</label>
+            <input type="text" name="passenger_name" id="passenger_name"><br><br>
+
+            <label for="date">Date of Travel:</label>
+            <input type="date" name="date" id="date"><br><br>
+
+            <input type="submit" value="Book Now">
+        </form>
+    </body>
+</html>

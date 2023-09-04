@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>List of Buses</title>
+    </head>
+    <body>
+        <h1>List of Available Buses</h1>
+            {{welcome}}
+        <ul>
+            {% for bus in buses %}
+                <li>{{ bus.name }} - Route: {{ bus.route.name }}</li>
+            {% empty %}
+                <li>No buses available</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'book_bus' %}">Book a Bus</a>
+    </body>
+</html>
