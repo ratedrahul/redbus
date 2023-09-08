@@ -1,0 +1,17 @@
+body{
+	background-color: azure;
+}
+
+h3{
+	color:darkred;
+}
+
+h1{
+	color:blue;
+}
+
+.image_pos img{
+	width: 46%;
+	position: absolute;
+	right: 5%;
+}

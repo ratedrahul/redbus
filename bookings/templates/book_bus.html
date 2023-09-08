@@ -1,36 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/booking.css' %}">
         <title>Bus Booking</title>
     </head>
     <body>
-        <h1>Book a Bus</h1>
+        <div class="bus_top_heading">
+            <h1>Book Bus with Green Bus</h1>
+        </div>
+
+        <div class="tenor-gif-embed" data-postid="17796635" data-share-method="host" data-aspect-ratio="3.3" data-width="100%"><a href="https://tenor.com/view/mom-mobilitadimarca-mobilit%C3%A0di-marca-bus-moving-gif-17796635">Mom Mobilitadimarca Sticker</a>from <a href="https://tenor.com/search/mom-stickers">Mom Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
         
-        {% if message %}
-            <p>{{ message }}</p>
-        {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+      {% endif %}
 
-        <form method="post" action="{% url 'book_bus' %}">
-            {% csrf_token %}
-            <label for="bus">Select a Bus:</label>
-            <select name="bus_id" id="bus">
-                {% for bus in buses %}
-                    <option value="{{ bus.id }}">{{ bus.name }}</option>
-                {% endfor %}
-            </select><br><br>
-
-            <label for="seat_number">Choose a Seat:</label>
-            <input type="number" name="seat_number" id="seat_number" min="1" max="50"><br><br>
-
-            <label for="passenger_name">Your Name:</label>
-            <input type="text" name="passenger_name" id="passenger_name"><br><br>
-
-            <label for="date">Date of Travel:</label>
-            <input type="date" name="date" id="date"><br><br>
-
-            <input type="submit" value="Book Now">
-        </form>
+        <div class="home">
+            <a href="{% url 'homepage' %}">Back to Home</a>
+        </div>
+        <div class = "form_class">
+            <form method="post">
+                {% csrf_token %}
+                {{book_form.as_p}}
+            <input class="submit_button" type="submit" value="Submit">
+            </form>
+        </div>
     </body>
 </html>

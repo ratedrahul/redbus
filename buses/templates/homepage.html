@@ -1,10 +1,22 @@
+{% load static %}
 <html>
-	<head></head>
+	<head>
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	</head>
+
 	<title>Green-Bus Travel Agency</title>
 	<body>
-		<h3>Welcome to Green Bus Travel Agency</h3>
+		<br>
+		<h1>Welcome to Green Bus Travel Agency</h1>
+		<h3>Travel in Heaven</h3>
 		<br><br><br>
+
 		<h4>Book a bus</h4>
 		<a href="{% url 'book_bus' %}">from here</a>
+		<br><br>
+		<div class="image_pos">
+			<img src="{% static 'image/bus.jpg' %}" alt="red bus">
+		</div>
+		<div class="tenor-gif-embed" data-postid="6745679885327168504" data-share-method="host" data-aspect-ratio="1" data-width="20%"><a href="https://tenor.com/view/bus-pass-public-bus-trolleybus-public-transportations-gif-6745679885327168504">Bus Pass Public Sticker</a>from <a href="https://tenor.com/search/bus+pass-stickers">Bus Pass Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 	</body>
 </html>
